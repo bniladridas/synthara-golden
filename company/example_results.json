@@ -1,0 +1,216 @@
+{
+  "tokenCount": 118,
+  "efficiency": 74.9,
+  "potential": 85.6,
+  "alignment": 66.8,
+  "charCount": 599,
+  "wordCount": 83,
+  "sentenceCount": 8,
+  "avgWordLength": 7.22,
+  "avgSentenceLength": 10.38,
+  "goldenRatioTarget": 16.18,
+  "tokens": [
+    {
+      "id": 464,
+      "string": "The"
+    },
+    {
+      "id": 10861,
+      "string": "\u0120golden"
+    },
+    {
+      "id": 8064,
+      "string": "\u0120ratio"
+    },
+    {
+      "id": 11,
+      "string": ","
+    },
+    {
+      "id": 6702,
+      "string": "\u0120approximately"
+    },
+    {
+      "id": 352,
+      "string": "\u01201"
+    },
+    {
+      "id": 13,
+      "string": "."
+    },
+    {
+      "id": 47448,
+      "string": "618"
+    },
+    {
+      "id": 11,
+      "string": ","
+    },
+    {
+      "id": 3568,
+      "string": "\u0120appears"
+    },
+    {
+      "id": 287,
+      "string": "\u0120in"
+    },
+    {
+      "id": 2972,
+      "string": "\u0120various"
+    },
+    {
+      "id": 7612,
+      "string": "\u0120aspects"
+    },
+    {
+      "id": 286,
+      "string": "\u0120of"
+    },
+    {
+      "id": 3450,
+      "string": "\u0120nature"
+    },
+    {
+      "id": 11,
+      "string": ","
+    },
+    {
+      "id": 1242,
+      "string": "\u0120art"
+    },
+    {
+      "id": 11,
+      "string": ","
+    },
+    {
+      "id": 290,
+      "string": "\u0120and"
+    },
+    {
+      "id": 1486,
+      "string": "\u0120design"
+    },
+    {
+      "id": 13,
+      "string": "."
+    },
+    {
+      "id": 632,
+      "string": "\u0120It"
+    },
+    {
+      "id": 318,
+      "string": "\u0120is"
+    },
+    {
+      "id": 3177,
+      "string": "\u0120considered"
+    },
+    {
+      "id": 14606,
+      "string": "\u0120aest"
+    },
+    {
+      "id": 31786,
+      "string": "hetically"
+    },
+    {
+      "id": 28790,
+      "string": "\u0120pleasing"
+    },
+    {
+      "id": 290,
+      "string": "\u0120and"
+    },
+    {
+      "id": 468,
+      "string": "\u0120has"
+    },
+    {
+      "id": 587,
+      "string": "\u0120been"
+    },
+    {
+      "id": 973,
+      "string": "\u0120used"
+    },
+    {
+      "id": 287,
+      "string": "\u0120in"
+    },
+    {
+      "id": 10959,
+      "string": "\u0120architecture"
+    },
+    {
+      "id": 11,
+      "string": ","
+    },
+    {
+      "id": 12036,
+      "string": "\u0120painting"
+    },
+    {
+      "id": 11,
+      "string": ","
+    },
+    {
+      "id": 290,
+      "string": "\u0120and"
+    },
+    {
+      "id": 2647,
+      "string": "\u0120music"
+    },
+    {
+      "id": 3690,
+      "string": "\u0120throughout"
+    },
+    {
+      "id": 2106,
+      "string": "\u0120history"
+    },
+    {
+      "id": 13,
+      "string": "."
+    },
+    {
+      "id": 198,
+      "string": "\u010a"
+    },
+    {
+      "id": 198,
+      "string": "\u010a"
+    },
+    {
+      "id": 38,
+      "string": "G"
+    },
+    {
+      "id": 11571,
+      "string": "PT"
+    },
+    {
+      "id": 12,
+      "string": "-"
+    },
+    {
+      "id": 17,
+      "string": "2"
+    },
+    {
+      "id": 11241,
+      "string": "\u0120token"
+    },
+    {
+      "id": 4340,
+      "string": "izes"
+    },
+    {
+      "id": 2420,
+      "string": "\u0120text"
+    }
+  ],
+  "timestamp": "2025-04-25T20:18:09.879475",
+  "model": "GPT-2"
+}

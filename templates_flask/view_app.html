@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ app_name }} - Code View</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .code-container {
+            margin-top: 20px;
+        }
+        .code-section {
+            margin-bottom: 20px;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .actions {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .actions a {
+            padding: 10px 15px;
+            text-decoration: none;
+            color: white;
+            border-radius: 3px;
+        }
+        .back-btn {
+            background-color: #607D8B;
+        }
+        .preview-btn {
+            background-color: #FF9800;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ app_name }} - Code View</h1>
+
+    <div class="container">
+        <div class="code-container">
+            <div class="code-section">
+                <h2>HTML (index.html)</h2>
+                <pre><code>{{ html_content }}</code></pre>
+            </div>
+
+            <div class="code-section">
+                <h2>CSS (styles.css)</h2>
+                <pre><code>{{ css_content }}</code></pre>
+            </div>
+
+            <div class="code-section">
+                <h2>JavaScript (script.js)</h2>
+                <pre><code>{{ js_content }}</code></pre>
+            </div>
+        </div>
+
+        <div class="actions">
+            <a href="{{ url_for('index') }}" class="back-btn">Back to Home</a>
+            <a href="{{ url_for('preview_app', app_name=app_name) }}" class="preview-btn">Preview App</a>
+        </div>
+    </div>
+</body>
+</html>

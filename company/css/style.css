@@ -1,0 +1,561 @@
+/*
+ * Main Stylesheet for Company Website
+ * Focus: Clean typography, minimal design, no visual noise
+ */
+
+/* Base Reset */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  /* Color Variables - Ultimate Minimalist Palette */
+  --color-background: #ffffff;
+  --color-text: #111111;
+  --color-text-light: #666666;
+  --color-accent: #000000;
+  --color-light: #fcfcfc;
+  --color-border: #f5f5f5;
+
+  /* Typography Variables - Perfected for Ultimate Readability */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-size-base: 1rem;
+  --font-size-small: 0.875rem;
+  --font-size-large: 1.125rem;
+  --line-height-base: 1.8;
+  --line-height-heading: 1.2;
+  --letter-spacing-tight: -0.03em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.01em;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 600;
+
+  /* Spacing Variables - Golden Ratio Harmony */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.809rem;
+  --spacing-md: 1.618rem;
+  --spacing-lg: 2.618rem;
+  --spacing-xl: 4.236rem;
+  --spacing-xxl: 6.854rem;
+
+  /* Container Width - Optimized for Perfect Reading */
+  --container-width: 960px;
+  --container-narrow: 620px;
+
+  /* Animation Variables */
+  --transition-fast: 0.2s;
+  --transition-medium: 0.4s;
+  --transition-slow: 0.6s;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0;
+  font-kerning: normal;
+  -webkit-tap-highlight-color: transparent;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Layout - Refined for Better Spacing and Rhythm */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.container-narrow {
+  max-width: var(--container-narrow);
+}
+
+.section {
+  padding: var(--spacing-lg) 0;
+  margin-bottom: var(--spacing-md);
+}
+
+.section-hero {
+  padding: var(--spacing-xl) 0 var(--spacing-lg);
+  margin-bottom: 0;
+}
+
+/* Typography - Ultimate Perfection */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-heading);
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text);
+  max-width: 30ch;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-tight);
+  max-width: 20ch;
+  margin-bottom: var(--spacing-lg);
+}
+
+h2 {
+  font-size: 1.5rem;
+  letter-spacing: var(--letter-spacing-tight);
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
+  max-width: 25ch;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: var(--letter-spacing-tight);
+  font-weight: var(--font-weight-medium);
+}
+
+h4 {
+  font-size: 1rem;
+  margin-bottom: var(--spacing-xs);
+  letter-spacing: var(--letter-spacing-normal);
+  font-weight: var(--font-weight-medium);
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+  max-width: 60ch;
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: all var(--transition-fast) ease;
+  border-bottom: 1px solid var(--color-border);
+  font-weight: var(--font-weight-normal);
+}
+
+a:hover {
+  border-bottom-color: var(--color-text);
+}
+
+/* Header & Navigation - Absolute Minimalism */
+header {
+  padding: var(--spacing-md) 0;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--spacing-xl);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.logo a {
+  color: inherit;
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  transition: opacity var(--transition-fast) ease;
+}
+
+.logo a:hover {
+  border-bottom: none;
+  opacity: 0.8;
+}
+
+.logo img {
+  display: inline-block;
+  margin-right: 0.5rem;
+  width: 20px;
+  height: 20px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin-left: var(--spacing-lg);
+}
+
+nav a {
+  color: var(--color-text-light);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-small);
+  letter-spacing: var(--letter-spacing-wide);
+  border-bottom: none;
+  transition: color var(--transition-fast) ease;
+}
+
+nav a:hover {
+  color: var(--color-text);
+  border-bottom: none;
+}
+
+nav a.active {
+  color: var(--color-text);
+  font-weight: var(--font-weight-normal);
+}
+
+/* Hero Section - Typographic Perfection */
+.hero {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  margin: 0 auto var(--spacing-md);
+  font-size: 2rem;
+  line-height: 1.2;
+  max-width: 16ch;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.hero p {
+  font-size: var(--font-size-base);
+  max-width: 32ch;
+  margin: 0 auto var(--spacing-xl);
+  color: var(--color-text-light);
+  line-height: var(--line-height-base);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+/* Animation container for the agent demo */
+.agent-animation {
+  margin: var(--spacing-lg) auto;
+  height: 200px;
+  position: relative;
+  max-width: 500px;
+  overflow: hidden;
+}
+
+.agent-prompt {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-normal);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text);
+  text-align: center;
+  padding: var(--spacing-xs);
+  line-height: 1.25;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp var(--transition-medium) ease forwards;
+}
+
+.agent-response {
+  position: absolute;
+  left: 0;
+  top: 50px;
+  width: 100%;
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-normal);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text-light);
+  text-align: center;
+  padding: var(--spacing-xs);
+  line-height: 1.25;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp var(--transition-medium) ease forwards 1.2s;
+}
+
+.agent-response-2 {
+  position: absolute;
+  left: 0;
+  top: 100px;
+  width: 100%;
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-normal);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text-light);
+  text-align: center;
+  padding: var(--spacing-xs);
+  line-height: 1.25;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp var(--transition-medium) ease forwards 2.4s;
+}
+
+.agent-response-3 {
+  position: absolute;
+  left: 0;
+  top: 150px;
+  width: 100%;
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-accent);
+  text-align: center;
+  padding: var(--spacing-xs);
+  line-height: 1.25;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp var(--transition-medium) ease forwards 3.6s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* Content Sections - Refined for Better Rhythm and Spacing */
+.content-section {
+  margin-bottom: var(--spacing-xl);
+  max-width: 100%;
+}
+
+.content-section h2 {
+  margin-bottom: var(--spacing-md);
+  position: relative;
+  display: inline-block;
+}
+
+.content-section h3 {
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text);
+}
+
+.content-section p {
+  color: var(--color-text);
+}
+
+/* Cards - Absolute Minimalism */
+.card {
+  padding: var(--spacing-md) 0;
+  margin-bottom: var(--spacing-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+.card h3, .card h4 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.card p {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  max-width: 55ch;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+.card ul, .card ol {
+  padding-left: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  line-height: var(--line-height-base);
+}
+
+.card li {
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Grid Layout - Refined for Better Spacing */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Images - Simplified */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.logo img {
+  display: inline-block;
+}
+
+/* Footer - Pure Minimalism */
+footer {
+  padding: var(--spacing-lg) 0;
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+  color: var(--color-text-light);
+  margin-top: var(--spacing-xxl);
+}
+
+footer p {
+  margin-bottom: var(--spacing-xs);
+  font-size: var(--font-size-small);
+  letter-spacing: var(--letter-spacing-wide);
+  line-height: 1.6;
+}
+
+footer p:last-child {
+  margin-bottom: 0;
+}
+
+.contact-info {
+  margin-top: var(--spacing-md);
+  font-size: var(--font-size-small);
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+.contact-info a {
+  color: var(--color-text-light);
+  border-bottom: none;
+  transition: color var(--transition-fast) ease;
+}
+
+.contact-info a:hover {
+  color: var(--color-text);
+  border-bottom: none;
+}
+
+/* Utilities - Simplified and Refined */
+.text-center {
+  text-align: center;
+}
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: var(--spacing-xs); }
+.mt-2 { margin-top: var(--spacing-sm); }
+.mt-3 { margin-top: var(--spacing-md); }
+.mt-4 { margin-top: var(--spacing-lg); }
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: var(--spacing-xs); }
+.mb-2 { margin-bottom: var(--spacing-sm); }
+.mb-3 { margin-bottom: var(--spacing-md); }
+.mb-4 { margin-bottom: var(--spacing-lg); }
+
+/* Responsive Design - Ultimate Simplicity */
+@media (max-width: 768px) {
+  :root {
+    --spacing-lg: 2.618rem;
+    --spacing-xl: 4.236rem;
+    --spacing-xxl: 5.5rem;
+  }
+
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+
+  h1, h2, h3, h4, h5, h6, p {
+    max-width: 100%;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.375rem;
+    margin-top: var(--spacing-lg);
+  }
+
+  h3 {
+    font-size: 1.125rem;
+  }
+
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .hero p {
+    font-size: var(--font-size-base);
+  }
+
+  .header-inner {
+    flex-direction: column;
+  }
+
+  nav {
+    margin-top: var(--spacing-md);
+    width: 100%;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav li {
+    margin: var(--spacing-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 15px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+  }
+
+  .section {
+    padding: var(--spacing-md) 0;
+  }
+
+  .section-hero {
+    padding: var(--spacing-lg) 0 var(--spacing-md);
+  }
+
+  footer {
+    margin-top: var(--spacing-xl);
+  }
+}

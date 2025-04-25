@@ -1,0 +1,5 @@
+The golden ratio, approximately 1.618, appears in various aspects of nature, art, and design. It is considered aesthetically pleasing and has been used in architecture, painting, and music throughout history.
+
+GPT-2 tokenizes text differently than other models. For example, numbers like 42 and symbols like @#$% are treated as separate tokens. URLs like https://example.com are split into multiple tokens.
+
+This example text demonstrates how our tokenizer analyzes content using golden ratio principles to determine efficiency, optimization potential, and alignment with natural language patterns.

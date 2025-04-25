@@ -1,0 +1,11 @@
+{
+  "name": "tokenharmony",
+  "version": "1.0.0",
+  "description": "GPT-2 tokenizer with golden ratio analysis",
+  "scripts": {
+    "start": "serve public"
+  },
+  "dependencies": {
+    "serve": "^14.0.0"
+  }
+}
