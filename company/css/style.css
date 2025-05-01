@@ -10,6 +10,22 @@
   box-sizing: border-box;
 }
 
+/* Page Transition Effects */
+html.is-animating .transition-fade {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(15px);
+}
+
+.transition-fade {
+  transition: opacity var(--transition-medium) ease,
+              filter var(--transition-medium) ease,
+              transform var(--transition-medium) ease;
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateY(0);
+}
+
 /* Typography */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 

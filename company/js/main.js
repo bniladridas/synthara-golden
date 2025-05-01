@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize image lazy loading
   initLazyLoading();
 
+  // Initialize page transitions
+  initPageTransitions();
+
   // Initialize agent animation if on homepage
   if (window.location.pathname === '/' ||
       window.location.pathname.endsWith('index.html')) {
@@ -112,4 +115,44 @@ function initLazyLoading() {
       img.removeAttribute('data-src');
     });
   }
+}
+
+/**
+ * Initialize page transitions with blur-to-clarity effect
+ */
+function initPageTransitions() {
+  // Add transition-fade class to main content
+  const mainContent = document.querySelector('main');
+  if (mainContent) {
+    mainContent.classList.add('transition-fade');
+  }
+
+  // Handle all internal link clicks
+  document.addEventListener('click', function(e) {
+    // Find closest anchor tag
+    const link = e.target.closest('a');
+
+    // If it's an internal link (not external, not anchor, not javascript)
+    if (link &&
+        link.href.startsWith(window.location.origin) &&
+        !link.href.includes('#') &&
+        !link.href.startsWith('javascript:') &&
+        !link.target) {
+
+      e.preventDefault();
+
+      // Start transition animation
+      document.documentElement.classList.add('is-animating');
+
+      // After animation completes, navigate to the new page
+      setTimeout(function() {
+        window.location.href = link.href;
+      }, 400); // Match this to your CSS transition time
+    }
+  });
+
+  // When page loads, remove the animation class
+  window.addEventListener('pageshow', function() {
+    document.documentElement.classList.remove('is-animating');
+  });
 }
