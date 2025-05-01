@@ -1,10 +1,21 @@
 /**
  * Country Selection Modal with Validation
+ * Shows only on first visit, respects localStorage
+ * Fixed to ensure it only shows once across all pages
  */
 
-// Immediately show the modal when the script loads
-window.onload = function() {
-  console.log('Window loaded, showing modal');
+// Use DOMContentLoaded instead of window.onload for better reliability
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM loaded, checking if modal should be shown');
+
+  // Debug localStorage
+  try {
+    console.log('Current localStorage state:');
+    console.log('- selectedCountry:', localStorage.getItem('selectedCountry'));
+    console.log('- cacheEnabled:', localStorage.getItem('cacheEnabled'));
+  } catch (e) {
+    console.error('Error accessing localStorage:', e);
+  }
 
   // Get modal element
   const modal = document.getElementById('country-modal');
@@ -16,16 +27,36 @@ window.onload = function() {
     return;
   }
 
-  // Show the modal
-  modal.style.display = 'flex';
-  modal.style.opacity = '1';
-  document.body.style.overflow = 'hidden';
+  // Check if user has already selected a country - use a more robust check
+  // This will work across all pages including index.html
+  const hasSelectedCountry = localStorage.getItem('selectedCountry');
+  console.log('Has selected country?', hasSelectedCountry ? 'YES' : 'NO');
+  console.log('Current URL:', window.location.href);
 
-  // Get the modal content
-  const modalContent = modal.querySelector('.country-modal-content');
-  if (modalContent) {
-    modalContent.style.opacity = '1';
-    modalContent.style.transform = 'translateY(0) scale(1)';
+  // Only show modal if user hasn't selected a country yet
+  if (!hasSelectedCountry) {
+    console.log('No country selection found in localStorage, showing modal');
+
+    // Show the modal with a slight delay for better user experience
+    setTimeout(() => {
+      // Show the modal
+      modal.style.display = 'flex';
+      modal.style.opacity = '1';
+      document.body.style.overflow = 'hidden';
+
+      // Get the modal content
+      const modalContent = modal.querySelector('.country-modal-content');
+      if (modalContent) {
+        modalContent.style.opacity = '1';
+        modalContent.style.transform = 'translateY(0) scale(1)';
+      }
+    }, 300);
+  } else {
+    console.log('Country already selected:', hasSelectedCountry, '- not showing modal');
+    // Ensure modal is hidden
+    if (modal) {
+      modal.style.display = 'none';
+    }
   }
 
   // Add event listener to the confirm button
@@ -77,7 +108,7 @@ window.onload = function() {
 
   // Add shake animation style
   addShakeAnimation();
-};
+});
 
 /**
  * Get country name from country code
@@ -116,3 +147,11 @@ function addShakeAnimation() {
   `;
   document.head.appendChild(style);
 }
+
+// Add a hidden debug function to reset country selection (for testing)
+// Can be called from console: resetCountrySelection()
+window.resetCountrySelection = function() {
+  localStorage.removeItem('selectedCountry');
+  localStorage.removeItem('cacheEnabled');
+  alert('Country selection reset. Refresh the page to see the modal again.');
+};

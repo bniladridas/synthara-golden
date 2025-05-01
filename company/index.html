@@ -206,28 +206,5 @@
   <!-- Scripts -->
   <script src="js/main.js"></script>
   <script src="js/country-selector.js"></script>
-
-  <!-- Inline script to ensure modal shows -->
-  <script>
-    // Show modal immediately
-    window.addEventListener('load', function() {
-      console.log('Inline script running');
-      setTimeout(function() {
-        var modal = document.getElementById('country-modal');
-        if (modal) {
-          modal.style.display = 'flex';
-          modal.style.opacity = '1';
-
-          var modalContent = modal.querySelector('.country-modal-content');
-          if (modalContent) {
-            modalContent.style.opacity = '1';
-            modalContent.style.transform = 'translateY(0) scale(1)';
-          }
-        } else {
-          console.error('Modal not found by inline script');
-        }
-      }, 500);
-    });
-  </script>
 </body>
 </html>

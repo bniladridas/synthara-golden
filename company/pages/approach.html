@@ -18,6 +18,7 @@
   <meta name="keywords" content="golden ratio development, ROI maximization, business value, software efficiency, cost reduction">
 
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/country-modal.css">
   <!-- Favicon -->
   <link rel="icon" href="../svg/favicon.svg" type="image/svg+xml">
   <link rel="alternate icon" href="../images/favicon.ico" type="image/x-icon">
@@ -148,7 +149,42 @@
     </div>
   </footer>
 
+  <!-- Country Selection Modal - Refined for Perfect Typography -->
+  <div id="country-modal" class="country-modal">
+    <div class="country-modal-content">
+      <div class="country-modal-header">
+        <h2>Welcome to Synthara AI</h2>
+      </div>
+      <div class="country-modal-body">
+        <p>Please select your location to optimize your experience with our perfectly balanced, harmonious interface. This also enables cache settings for a 250% faster browsing experience.</p>
+        <div class="country-select-container">
+          <select id="country-select" aria-label="Select your country">
+            <option value="" disabled selected>Where are you browsing from?</option>
+            <option value="us">United States</option>
+            <option value="ca">Canada</option>
+            <option value="uk">United Kingdom</option>
+            <option value="au">Australia</option>
+            <option value="de">Germany</option>
+            <option value="fr">France</option>
+            <option value="jp">Japan</option>
+            <option value="in">India</option>
+            <option value="br">Brazil</option>
+            <option value="other">Somewhere Else Entirely</option>
+          </select>
+        </div>
+        <div class="cache-setting">
+          <input type="checkbox" id="enable-cache" checked>
+          <label for="enable-cache">Enable cache for the most harmonious browsing experience possible</label>
+        </div>
+      </div>
+      <div class="country-modal-footer">
+        <button id="confirm-country" class="btn-primary">Confirm Selection</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Scripts -->
   <script src="../js/main.js"></script>
+  <script src="../js/country-selector.js"></script>
 </body>
 </html>
