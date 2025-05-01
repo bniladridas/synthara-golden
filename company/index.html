@@ -18,6 +18,7 @@
   <meta name="keywords" content="AI software development, golden ratio, business value, ROI, intelligent agents">
 
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/country-modal.css">
   <!-- Favicon -->
   <link rel="icon" href="svg/favicon.svg" type="image/svg+xml">
   <link rel="alternate icon" href="images/favicon.ico" type="image/x-icon">
@@ -66,7 +67,7 @@
   </section>
 
   <!-- Main Content -->
-  <main>
+  <main class="transition-fade">
     <section class="section">
       <div class="container container-narrow">
         <div class="content-section">
@@ -168,7 +169,65 @@
     </div>
   </footer>
 
+  <!-- Country Selection Modal - Refined for Perfect Typography -->
+  <div id="country-modal" class="country-modal">
+    <div class="country-modal-content">
+      <div class="country-modal-header">
+        <h2>Welcome to Synthara AI</h2>
+      </div>
+      <div class="country-modal-body">
+        <p>Please select your location to optimize your experience with our perfectly balanced, harmonious interface. This also enables cache settings for a 250% faster browsing experience.</p>
+        <div class="country-select-container">
+          <select id="country-select" aria-label="Select your country">
+            <option value="" disabled selected>Where are you browsing from?</option>
+            <option value="us">United States</option>
+            <option value="ca">Canada</option>
+            <option value="uk">United Kingdom</option>
+            <option value="au">Australia</option>
+            <option value="de">Germany</option>
+            <option value="fr">France</option>
+            <option value="jp">Japan</option>
+            <option value="in">India</option>
+            <option value="br">Brazil</option>
+            <option value="other">Somewhere Else Entirely</option>
+          </select>
+        </div>
+        <div class="cache-setting">
+          <input type="checkbox" id="enable-cache" checked>
+          <label for="enable-cache">Enable cache for the most harmonious browsing experience possible</label>
+        </div>
+      </div>
+      <div class="country-modal-footer">
+        <button id="confirm-country" class="btn-primary">Confirm Selection</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Scripts -->
   <script src="js/main.js"></script>
+  <script src="js/country-selector.js"></script>
+
+  <!-- Inline script to ensure modal shows -->
+  <script>
+    // Show modal immediately
+    window.addEventListener('load', function() {
+      console.log('Inline script running');
+      setTimeout(function() {
+        var modal = document.getElementById('country-modal');
+        if (modal) {
+          modal.style.display = 'flex';
+          modal.style.opacity = '1';
+
+          var modalContent = modal.querySelector('.country-modal-content');
+          if (modalContent) {
+            modalContent.style.opacity = '1';
+            modalContent.style.transform = 'translateY(0) scale(1)';
+          }
+        } else {
+          console.error('Modal not found by inline script');
+        }
+      }, 500);
+    });
+  </script>
 </body>
 </html>
