@@ -225,6 +225,7 @@ nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  position: relative;
 }
 
 nav li {
@@ -248,6 +249,86 @@ nav a:hover {
 nav a.active {
   color: var(--color-text);
   font-weight: var(--font-weight-normal);
+}
+
+/* Navigation dropdown */
+.nav-more {
+  position: relative;
+}
+
+.more-button {
+  display: flex;
+  align-items: center;
+  color: var(--color-text-light);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-small);
+  letter-spacing: var(--letter-spacing-wide);
+  cursor: pointer;
+  transition: color var(--transition-fast) ease;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.more-button:hover {
+  color: var(--color-text);
+}
+
+.more-button-icon {
+  margin-left: 4px;
+  transition: transform var(--transition-fast) ease;
+}
+
+.nav-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: var(--spacing-sm);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity var(--transition-fast) ease,
+              visibility var(--transition-fast) ease,
+              transform var(--transition-fast) ease;
+  z-index: 100;
+  min-width: 180px;
+}
+
+.nav-more:hover .nav-dropdown,
+.nav-dropdown:hover {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav-more:hover .more-button-icon {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown ul {
+  display: block;
+  padding: 0;
+}
+
+.nav-dropdown li {
+  margin: 0;
+  padding: var(--spacing-xs) 0;
+  white-space: nowrap;
+}
+
+.nav-dropdown a {
+  display: block;
+  padding: 4px var(--spacing-xs);
+  border-radius: 2px;
+}
+
+.nav-dropdown a:hover {
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 /* Hero Section - Typographic Perfection */
@@ -299,7 +380,6 @@ nav a.active {
   line-height: 1.25;
   opacity: 0;
   transform: translateY(10px);
-  animation: fadeInUp var(--transition-medium) ease forwards;
 }
 
 .agent-response {
@@ -317,7 +397,6 @@ nav a.active {
   line-height: 1.25;
   opacity: 0;
   transform: translateY(10px);
-  animation: fadeInUp var(--transition-medium) ease forwards 1.2s;
 }
 
 .agent-response-2 {
@@ -335,7 +414,6 @@ nav a.active {
   line-height: 1.25;
   opacity: 0;
   transform: translateY(10px);
-  animation: fadeInUp var(--transition-medium) ease forwards 2.4s;
 }
 
 .agent-response-3 {
@@ -353,6 +431,22 @@ nav a.active {
   line-height: 1.25;
   opacity: 0;
   transform: translateY(10px);
+}
+
+/* Animation classes that will be added after country selection */
+.animate-prompt {
+  animation: fadeInUp var(--transition-medium) ease forwards;
+}
+
+.animate-response {
+  animation: fadeInUp var(--transition-medium) ease forwards 1.2s;
+}
+
+.animate-response-2 {
+  animation: fadeInUp var(--transition-medium) ease forwards 2.4s;
+}
+
+.animate-response-3 {
   animation: fadeInUp var(--transition-medium) ease forwards 3.6s;
 }
 
@@ -574,4 +668,69 @@ footer p:last-child {
   footer {
     margin-top: var(--spacing-xl);
   }
+
+  .floating-pad {
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0;
+  }
+}
+
+/* Floating Pad Styles */
+.floating-pad {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+  transition: all var(--transition-fast) ease;
+}
+
+.floating-pad:hover {
+  border-color: var(--color-text-light);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.floating-pad a {
+  display: block;
+  border-bottom: none;
+  color: var(--color-text);
+}
+
+.floating-pad a:hover {
+  border-bottom: none;
+}
+
+.floating-pad-content {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+}
+
+.floating-pad-text {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-normal);
+  letter-spacing: var(--letter-spacing-wide);
+  color: var(--color-text-light);
+}
+
+.floating-pad-arrow {
+  margin-left: 8px;
+  font-size: 1rem;
+  transition: transform var(--transition-fast) ease;
+  color: var(--color-text-light);
+}
+
+.floating-pad:hover .floating-pad-text,
+.floating-pad:hover .floating-pad-arrow {
+  color: var(--color-text);
+}
+
+.floating-pad:hover .floating-pad-arrow {
+  transform: translateX(3px);
 }

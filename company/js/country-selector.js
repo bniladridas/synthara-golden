@@ -90,6 +90,9 @@ document.addEventListener('DOMContentLoaded', function() {
       setTimeout(function() {
         modal.style.display = 'none';
         document.body.style.overflow = '';
+
+        // Start the agent animation after the modal is hidden
+        startAgentAnimation();
       }, 400);
 
       // Show confirmation with country name
@@ -147,6 +150,36 @@ function addShakeAnimation() {
   `;
   document.head.appendChild(style);
 }
+
+/**
+ * Start the agent animation by adding animation classes
+ */
+function startAgentAnimation() {
+  // Only run on the homepage
+  if (window.location.pathname === '/' ||
+      window.location.pathname.endsWith('index.html')) {
+
+    // Add animation classes to each element
+    const agentPrompt = document.querySelector('.agent-prompt');
+    const agentResponse = document.querySelector('.agent-response');
+    const agentResponse2 = document.querySelector('.agent-response-2');
+    const agentResponse3 = document.querySelector('.agent-response-3');
+
+    if (agentPrompt) agentPrompt.classList.add('animate-prompt');
+    if (agentResponse) agentResponse.classList.add('animate-response');
+    if (agentResponse2) agentResponse2.classList.add('animate-response-2');
+    if (agentResponse3) agentResponse3.classList.add('animate-response-3');
+  }
+}
+
+// If user has already selected a country, start the animation immediately
+document.addEventListener('DOMContentLoaded', function() {
+  const hasSelectedCountry = localStorage.getItem('selectedCountry');
+  if (hasSelectedCountry) {
+    // Small delay to ensure the page is fully loaded
+    setTimeout(startAgentAnimation, 500);
+  }
+});
 
 // Add a hidden debug function to reset country selection (for testing)
 // Can be called from console: resetCountrySelection()

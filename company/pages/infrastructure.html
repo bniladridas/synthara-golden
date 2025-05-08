@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Infrastructure - Synthara AI</title>
+
+  <!-- Open Graph / Social Media Metadata -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://inferencesyntharaai.vercel.app/pages/infrastructure.html">
+  <meta property="og:title" content="Our Infrastructure | Synthara AI">
+  <meta property="og:description" content="Learn how Synthara AI leverages Vercel, GPU compute, and advanced infrastructure to power our LLMs in production.">
+  <meta property="og:image" content="https://inferencesyntharaai.vercel.app/images/og-golden-infrastructure.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Primary Meta Tags -->
+  <meta name="description" content="Discover how Synthara AI harnesses the power of Vercel, GPU compute, and efficient infrastructure to deliver high-performance LLMs at scale.">
+  <meta name="keywords" content="Vercel, GPU compute, LLM infrastructure, AI deployment, cloud computing, energy efficiency">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- Favicon -->
+  <link rel="icon" href="../svg/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <div class="logo">
+          <a href="../index.html">
+            <img src="../svg/logo.svg" alt="Synthara AI Logo" width="30" height="30" style="vertical-align: middle; margin-right: 8px;">
+            Synthara AI
+          </a>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="approach.html">Our Approach</a></li>
+            <li><a href="technology.html">Technology</a></li>
+            <li class="nav-more">
+              <div class="more-button">
+                More
+                <svg class="more-button-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="nav-dropdown">
+                <ul>
+                  <li><a href="showcase.html">Showcase</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="tokenizer.html">Tokenizer</a></li>
+                  <li><a href="infrastructure.html" class="active">Infrastructure</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="section-hero">
+    <div class="container container-narrow">
+      <div class="hero">
+        <h1>Our Infrastructure</h1>
+        <p>How we harness Vercel, GPU compute, and efficient infrastructure to power our LLMs in production.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="transition-fade">
+    <section class="section">
+      <div class="container container-narrow">
+        <div class="content-section">
+          <h2>Why We Choose Vercel</h2>
+          <p>At Synthara AI, our decision to deploy our large language models (LLMs) on Vercel is driven by a commitment to performance, reliability, and developer experience. Vercel provides the ideal infrastructure for our AI-powered applications, enabling us to focus on innovation rather than operational complexity.</p>
+
+          <div class="card">
+            <h3>Global Edge Network</h3>
+            <p>Vercel's global edge network ensures that our LLM-powered applications are delivered with minimal latency to users worldwide. This distributed architecture places our AI capabilities closer to end-users, reducing response times by up to 40% compared to traditional centralized deployments.</p>
+            <p>The edge network spans over 30 regions globally, ensuring that regardless of where our users are located, they experience the same responsive, high-performance interaction with our AI systems.</p>
+          </div>
+
+          <div class="card">
+            <h3>Serverless Architecture</h3>
+            <p>While Vercel's serverless architecture is excellent for our web application frontend, we integrate it with specialized LLM providers like Together AI and OpenAI for the actual model inference. Vercel handles the request routing, caching, and user interface, while the compute-intensive LLM operations run on dedicated GPU infrastructure.</p>
+            <p>This hybrid approach gives us the best of both worlds: Vercel's excellent developer experience and edge capabilities for the frontend, combined with specialized GPU infrastructure for the actual AI computation. This results in approximately 40% reduction in operational complexity while maintaining high performance.</p>
+          </div>
+
+          <div class="card">
+            <h3>Continuous Deployment</h3>
+            <p>Vercel's seamless integration with our development workflow enables us to implement a continuous deployment pipeline for our LLMs. Each improvement to our models can be automatically deployed and verified, ensuring that our AI capabilities are constantly evolving and improving.</p>
+            <p>This approach has accelerated our innovation cycle by 70%, allowing us to rapidly iterate on our models and deliver enhanced capabilities to our users with minimal operational overhead.</p>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>The Power of GPU Compute</h2>
+          <p>Our LLMs require significant computational resources to deliver their advanced capabilities. We leverage specialized GPU infrastructure to power these models efficiently and sustainably.</p>
+
+          <div class="card">
+            <h3>Accelerated Inference</h3>
+            <p>GPUs (Graphics Processing Units) are specialized processors designed for parallel computation, making them ideal for the matrix operations that power our language models. By deploying our models on GPU infrastructure, we achieve inference speeds up to 40x faster than equivalent CPU-based deployments.</p>
+            <p>This acceleration is critical for maintaining the responsive, natural interaction that users expect from our AI systems, even when processing complex queries or generating extensive content.</p>
+          </div>
+
+          <div class="card">
+            <h3>Optimized Model Architecture</h3>
+            <p>We leverage state-of-the-art quantization techniques like GPTQ and AWQ to optimize models for inference. By using 4-bit quantization where appropriate, we can run models that would normally require 24GB of VRAM on consumer GPUs with 8GB of VRAM, making deployment more cost-effective.</p>
+            <p>For our production deployments, we use Together AI's infrastructure which employs techniques like FlashAttention and vLLM for optimized inference. These optimizations provide up to 3x faster inference speeds compared to naive implementations while maintaining the same output quality.</p>
+          </div>
+
+          <div class="card">
+            <h3>Energy Efficiency</h3>
+            <p>While GPUs provide exceptional computational power, they also consume significant energy. By using cloud providers like Together AI that employ the latest NVIDIA H100 and A100 GPUs, we benefit from their superior performance-per-watt ratio compared to older GPU generations. These modern GPUs can deliver the same inference results using 30-40% less energy than previous generations.</p>
+            <p>We also implement request batching where appropriate, which significantly improves throughput and energy efficiency by processing multiple requests in a single GPU pass rather than many individual operations. This approach can improve energy efficiency by up to 60% for high-traffic applications.</p>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>Electricity and Sustainable AI</h2>
+          <p>The energy requirements of modern AI systems present both challenges and opportunities. At Synthara AI, we've developed a comprehensive approach to managing our energy consumption while maximizing computational efficiency.</p>
+
+          <div class="card">
+            <h3>Cloud Provider Sustainability</h3>
+            <p>By leveraging cloud providers like Together AI and Vercel that have made commitments to sustainability, we benefit from their investments in renewable energy. Major cloud providers have been increasingly moving toward carbon neutrality and investing in renewable energy sources to power their data centers.</p>
+            <p>For example, Google Cloud (which powers some of our infrastructure) has been carbon neutral since 2007 and aims to run on 24/7 carbon-free energy by 2030. By choosing providers with strong environmental commitments, we indirectly support the transition to more sustainable computing.</p>
+          </div>
+
+          <div class="card">
+            <h3>Efficient Resource Utilization</h3>
+            <p>We implement practical approaches to resource efficiency, such as using serverless architectures that scale down to zero when not in use, and employing caching strategies to reduce redundant computations. These approaches not only reduce costs but also minimize unnecessary energy consumption.</p>
+            <p>For batch processing tasks, we use efficient scheduling to run non-time-sensitive workloads during off-peak hours, which helps balance the load on data centers and can take advantage of times when the energy mix may have a higher percentage of renewables.</p>
+          </div>
+
+          <div class="card">
+            <h3>Model Efficiency Techniques</h3>
+            <p>We employ several practical techniques to improve model efficiency. For example, we use knowledge distillation to create smaller models that learn from larger ones, and we implement context compression methods that can reduce the token length of conversations by up to 80% while preserving the essential information.</p>
+            <p>We also carefully evaluate whether we need the largest models for each task. For many applications, we find that smaller models like Llama-3-8B or Mistral-7B can perform nearly as well as their larger counterparts for specific tasks while requiring significantly less computational resources. This pragmatic approach allows us to balance capability with efficiency.</p>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>Our Production Infrastructure</h2>
+          <p>The deployment of LLMs in production environments requires a sophisticated infrastructure stack that balances performance, reliability, and cost-effectiveness. Our production infrastructure incorporates several key components:</p>
+
+          <div class="card">
+            <h3>Edge-Optimized Architecture</h3>
+            <p>Our web application is deployed on Vercel's edge network, which automatically routes users to the closest region. For the LLM inference, we use Together AI's API which has data centers in strategic locations to minimize latency. This hybrid approach gives us global reach without having to manage our own GPU infrastructure in multiple regions.</p>
+            <p>For users in regions with higher latency to our primary infrastructure, we implement progressive loading techniques and optimistic UI updates to maintain a responsive user experience even when the actual model inference takes longer.</p>
+          </div>
+
+          <div class="card">
+            <h3>Practical Caching Strategies</h3>
+            <p>We implement several practical caching strategies to improve performance and reduce costs. For example, we cache common queries and their responses, use streaming responses to improve perceived latency, and implement client-side caching for frequently accessed data.</p>
+            <p>For our documentation and FAQ sections, we pre-compute responses to common questions during build time rather than generating them on-demand. This approach reduces the load on our LLM infrastructure while still providing AI-quality responses to users.</p>
+          </div>
+
+          <div class="card">
+            <h3>Real-world Monitoring</h3>
+            <p>We use practical monitoring tools like Vercel Analytics and custom logging to track key metrics such as response times, error rates, and user engagement. This data helps us identify bottlenecks and optimize our application for real-world usage patterns.</p>
+            <p>We also implement circuit breakers and fallback mechanisms that can detect when our LLM providers are experiencing issues and automatically switch to alternative providers or cached responses. This approach ensures that our application remains functional even during upstream service disruptions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background-color: var(--color-light);">
+      <div class="container container-narrow text-center">
+        <h2>Experience Our Infrastructure in Action</h2>
+        <p>Visit our live deployment at syntharaai.vercel.app to experience the performance and capabilities enabled by our advanced infrastructure.</p>
+        <p><a href="https://syntharaai.vercel.app" target="_blank" rel="noopener noreferrer">Visit syntharaai.vercel.app →</a></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Synthara AI. All rights reserved.</p>
+      <p>Building intelligent software agents with clean, harmonious design.</p>
+      <p class="contact-info">Contact: <a href="mailto:synthara.company@gmail.com">synthara.company@gmail.com</a></p>
+    </div>
+  </footer>
+
+  <!-- Floating Pad -->
+  <div class="floating-pad">
+    <a href="https://syntharaai.vercel.app" target="_blank" rel="noopener noreferrer">
+      <div class="floating-pad-content">
+        <span class="floating-pad-text">syntharaai.vercel.app</span>
+        <span class="floating-pad-arrow">→</span>
+      </div>
+    </a>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>

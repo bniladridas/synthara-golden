@@ -15,12 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Initialize page transitions
   initPageTransitions();
-
-  // Initialize agent animation if on homepage
-  if (window.location.pathname === '/' ||
-      window.location.pathname.endsWith('index.html')) {
-    initAgentAnimation();
-  }
 });
 
 /**
@@ -46,14 +40,7 @@ function setActiveNavLink() {
   }
 }
 
-/**
- * Initialize the agent animation on the homepage
- */
-function initAgentAnimation() {
-  // We're not using typing animation anymore
-  // The CSS animations handle the fade-in effect for a cleaner, more harmonious experience
-  // This creates a more elegant, typography-focused animation with no visual noise
-}
+// Agent animation is now handled in country-selector.js
 
 /**
  * This function is no longer used - we've switched to pure CSS animations
