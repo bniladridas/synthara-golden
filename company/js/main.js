@@ -1,6 +1,7 @@
 /**
  * Main JavaScript file for Company Website
  * Minimal functionality to enhance user experience without adding noise
+ * Enhanced with accessibility features
  */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -15,6 +16,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Initialize page transitions
   initPageTransitions();
+
+  // Initialize keyboard navigation
+  initKeyboardNavigation();
+
+  // Initialize focus visibility
+  initFocusVisibility();
 });
 
 /**
@@ -141,5 +148,110 @@ function initPageTransitions() {
   // When page loads, remove the animation class
   window.addEventListener('pageshow', function() {
     document.documentElement.classList.remove('is-animating');
+  });
+}
+
+/**
+ * Initialize keyboard navigation for dropdown menus and interactive elements
+ */
+function initKeyboardNavigation() {
+  // Handle dropdown menu keyboard navigation
+  const moreButton = document.querySelector('.more-button');
+  const dropdownMenu = document.querySelector('.nav-dropdown');
+
+  if (moreButton && dropdownMenu) {
+    // Convert div to button for better accessibility if not already
+    if (moreButton.tagName !== 'BUTTON') {
+      const newButton = document.createElement('button');
+      newButton.className = moreButton.className;
+      newButton.innerHTML = moreButton.innerHTML;
+      newButton.setAttribute('aria-expanded', 'false');
+      newButton.setAttribute('aria-controls', 'dropdown-menu');
+      moreButton.parentNode.replaceChild(newButton, moreButton);
+      moreButton = newButton;
+    }
+
+    // Toggle dropdown with keyboard
+    moreButton.addEventListener('click', function() {
+      const expanded = this.getAttribute('aria-expanded') === 'true' || false;
+      this.setAttribute('aria-expanded', !expanded);
+
+      if (!expanded) {
+        // If opening the dropdown, focus the first item
+        setTimeout(() => {
+          const firstLink = dropdownMenu.querySelector('a');
+          if (firstLink) firstLink.focus();
+        }, 100);
+      }
+    });
+
+    // Close dropdown when pressing Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && moreButton.getAttribute('aria-expanded') === 'true') {
+        moreButton.setAttribute('aria-expanded', 'false');
+        moreButton.focus();
+      }
+    });
+
+    // Handle arrow key navigation within dropdown
+    dropdownMenu.addEventListener('keydown', function(e) {
+      const links = Array.from(this.querySelectorAll('a'));
+      const currentIndex = links.indexOf(document.activeElement);
+
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        const nextIndex = (currentIndex + 1) % links.length;
+        links[nextIndex].focus();
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        const prevIndex = (currentIndex - 1 + links.length) % links.length;
+        links[prevIndex].focus();
+      } else if (e.key === 'Tab' && e.shiftKey && currentIndex === 0) {
+        // If tabbing backwards from first item, close dropdown and focus button
+        e.preventDefault();
+        moreButton.setAttribute('aria-expanded', 'false');
+        moreButton.focus();
+      } else if (e.key === 'Tab' && !e.shiftKey && currentIndex === links.length - 1) {
+        // If tabbing forward from last item, close dropdown
+        moreButton.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+}
+
+/**
+ * Initialize focus visibility to only show focus styles when using keyboard
+ */
+function initFocusVisibility() {
+  // Add class to body to indicate JS is enabled
+  document.body.classList.add('js-focus-visible');
+
+  // Track whether user is using keyboard or mouse
+  let usingKeyboard = false;
+
+  // Set to true when user presses Tab
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Tab') {
+      usingKeyboard = true;
+      document.body.classList.add('user-is-tabbing');
+    }
+  });
+
+  // Set to false when user clicks with mouse
+  document.addEventListener('mousedown', function() {
+    usingKeyboard = false;
+    document.body.classList.remove('user-is-tabbing');
+  });
+
+  // Add focus-visible class to elements when focused with keyboard
+  document.addEventListener('focusin', function(e) {
+    if (usingKeyboard) {
+      e.target.classList.add('focus-visible');
+    }
+  });
+
+  // Remove focus-visible class when focus moves away
+  document.addEventListener('focusout', function(e) {
+    e.target.classList.remove('focus-visible');
   });
 }

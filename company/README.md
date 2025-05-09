@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is the website for Synthara AI, featuring information about our GPT-2 tokenizer with golden ratio analysis.
+This is the website for Synthara AI, featuring information about our GPT-2 tokenizer with golden ratio analysis. The website is built with a focus on accessibility, ensuring that all users, including those with disabilities, can access and use the site effectively.
 
 ## Features
 
@@ -12,6 +12,23 @@ This is the website for Synthara AI, featuring information about our GPT-2 token
 - Transparent algorithm documentation
 - Simple static file server
 - Standalone tokenizer script for text analysis
+- Comprehensive accessibility features
+
+## Accessibility
+
+The website includes comprehensive accessibility features to ensure it's usable by everyone:
+
+- Semantic HTML structure with proper ARIA landmarks
+- Keyboard navigation support for all interactive elements
+- Screen reader compatibility with proper ARIA attributes
+- Visible focus indicators for keyboard users
+- Support for reduced motion preferences
+- Color contrast that meets WCAG guidelines
+- Skip links for keyboard users
+
+For detailed information about accessibility features and guidelines, see [ACCESSIBILITY.md](ACCESSIBILITY.md).
+
+For a history of changes, including accessibility improvements, see [CHANGELOG.md](CHANGELOG.md).
 
 ## Running the Web Application
 
@@ -153,3 +170,20 @@ Note: The "Ġ" character represents a space before the token in the GPT-2 tokeni
 - No dynamic content or API calls are required
 - The server is lightweight and easy to deploy
 - The standalone tokenizer script provides all the functionality for text analysis
+- Semantic HTML with ARIA attributes for accessibility
+- JavaScript enhancements for keyboard navigation and screen reader support
+- CSS features for improved visual accessibility and focus management
+- Support for user preferences like reduced motion
+
+## Accessibility Testing
+
+The website has been tested for accessibility using:
+
+- Keyboard navigation testing to ensure all interactive elements can be accessed and operated
+- Screen reader compatibility testing to ensure content is properly announced
+- Color contrast checking to ensure text is readable
+- Code validation for proper HTML semantics and ARIA attributes
+
+## Contributing
+
+When contributing to this project, please ensure that all changes maintain or enhance the accessibility of the website. Refer to the [ACCESSIBILITY.md](ACCESSIBILITY.md) document for guidelines on maintaining accessibility.

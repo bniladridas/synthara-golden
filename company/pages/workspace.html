@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workspace - Synthara AI</title>
+
+  <!-- Open Graph / Social Media Metadata -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://inferencesyntharaai.vercel.app/pages/workspace.html">
+  <meta property="og:title" content="Workspace | Synthara AI">
+  <meta property="og:description" content="Access your Synthara AI workspace and manage your projects.">
+  <meta property="og:image" content="https://inferencesyntharaai.vercel.app/images/og-golden-workspace.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Primary Meta Tags -->
+  <meta name="description" content="Access your Synthara AI workspace and manage your projects.">
+  <meta name="keywords" content="workspace, dashboard, projects, Synthara AI">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/workspace.css">
+  <!-- Favicon -->
+  <link rel="icon" href="../svg/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <!-- Skip to main content link for keyboard users -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header role="banner">
+    <div class="container">
+      <div class="header-inner">
+        <div class="logo">
+          <a href="../index.html">
+            <img src="../svg/logo.svg" alt="Synthara AI Logo" width="30" height="30" style="vertical-align: middle; margin-right: 8px;">
+            Synthara AI
+          </a>
+        </div>
+        <nav role="navigation" aria-label="Main Navigation">
+          <button class="menu-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Toggle menu" hidden>
+            <span class="sr-only">Menu</span>
+            <span class="menu-icon"></span>
+          </button>
+          <ul id="main-menu">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="approach.html">Our Approach</a></li>
+            <li><a href="technology.html">Technology</a></li>
+            <li class="nav-more">
+              <button class="more-button" aria-expanded="false" aria-controls="dropdown-menu">
+                More
+                <svg class="more-button-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <div class="nav-dropdown" id="dropdown-menu">
+                <ul>
+                  <li><a href="showcase.html">Showcase</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="tokenizer.html">Tokenizer</a></li>
+                  <li><a href="infrastructure.html">Infrastructure</a></li>
+                  <li><a href="sota.html" aria-label="State-of-the-Art AI">SOTA</a></li>
+                  <li><a href="workspace.html" aria-label="Access your workspace" class="active">Workspace</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content" class="transition-fade" role="main">
+    <section class="section">
+      <div class="container container-narrow">
+        <div class="content-section">
+          <h1>Workspace</h1>
+          <p>Welcome to your Synthara AI workspace. Manage your projects, access your resources, and track your progress all in one place.</p>
+
+          <div class="workspace-login">
+            <h2>Sign In to Your Workspace</h2>
+            <form class="login-form" action="#" method="post" aria-labelledby="login-heading">
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required aria-required="true">
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required aria-required="true">
+                <p class="form-help"><a href="#" aria-label="Forgot password? Reset it here">Forgot password?</a></p>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn-primary">Sign In</button>
+              </div>
+            </form>
+            <div class="login-divider">
+              <span>or</span>
+            </div>
+            <div class="create-account">
+              <p>Don't have an account yet?</p>
+              <a href="#" class="btn-secondary">Create Account</a>
+            </div>
+          </div>
+
+          <div class="workspace-features">
+            <h2>Workspace Features</h2>
+            <div class="grid">
+              <div class="card" role="listitem">
+                <h3>Project Management</h3>
+                <p>Create, organize, and track your AI development projects. Set milestones, assign tasks, and monitor progress in real-time.</p>
+              </div>
+              <div class="card" role="listitem">
+                <h3>Resource Library</h3>
+                <p>Access our comprehensive library of AI models, datasets, and documentation to accelerate your development process.</p>
+              </div>
+              <div class="card" role="listitem">
+                <h3>Collaboration Tools</h3>
+                <p>Invite team members, assign roles, and collaborate seamlessly on projects with integrated communication tools.</p>
+              </div>
+              <div class="card" role="listitem">
+                <h3>Analytics Dashboard</h3>
+                <p>Monitor your project metrics, resource usage, and performance indicators through intuitive visual dashboards.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="workspace-security">
+            <h2>Security & Privacy</h2>
+            <p>Your data security is our priority. All workspace data is encrypted and protected with enterprise-grade security measures. We comply with industry standards and regulations to ensure your information remains private and secure.</p>
+            <p>For more information about how we protect your data, please review our <a href="privacy.html">Privacy Policy</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <div class="container">
+      <p>&copy; 2025 Synthara AI. All rights reserved.</p>
+      <p>Building intelligent software agents with clean, harmonious design.</p>
+      <p class="contact-info">Contact: <a href="mailto:synthara.company@gmail.com" aria-label="Email Synthara AI">synthara.company@gmail.com</a></p>
+      <div class="footer-links">
+        <a href="terms.html">Terms of Service</a> |
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="cookies.html">Cookie Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Pad -->
+  <div class="floating-pad" role="complementary" aria-label="Visit our main website">
+    <a href="https://syntharaai.vercel.app" target="_blank" rel="noopener noreferrer" aria-label="Visit syntharaai.vercel.app (opens in a new tab)">
+      <div class="floating-pad-content">
+        <span class="floating-pad-text">syntharaai.vercel.app</span>
+        <span class="floating-pad-arrow" aria-hidden="true">→</span>
+      </div>
+    </a>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+  <script src="../js/workspace.js"></script>
+</body>
+</html>

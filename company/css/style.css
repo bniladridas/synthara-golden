@@ -30,13 +30,16 @@ html.is-animating .transition-fade {
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 
 :root {
-  /* Color Variables - Ultimate Minimalist Palette */
+  /* Color Variables - Ultimate Minimalist Palette with Improved Contrast */
   --color-background: #ffffff;
   --color-text: #111111;
-  --color-text-light: #666666;
+  --color-text-light: #555555; /* Improved from #666666 for better contrast */
   --color-accent: #000000;
   --color-light: #fcfcfc;
-  --color-border: #f5f5f5;
+  --color-border: #e0e0e0; /* Improved from #f5f5f5 for better visibility */
+  --color-focus: #0066cc; /* Added for focus states */
+  --color-focus-ring: rgba(0, 102, 204, 0.25); /* Added for focus rings */
+  --color-error: #d32f2f; /* Added for error states */
 
   /* Typography Variables - Perfected for Ultimate Readability */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -168,6 +171,50 @@ p:last-child {
   margin-bottom: 0;
 }
 
+/* Accessibility-specific styles */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-accent);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .transition-fade {
+    transition: none !important;
+    filter: none !important;
+    transform: none !important;
+  }
+}
+
 a {
   color: var(--color-text);
   text-decoration: none;
@@ -178,6 +225,31 @@ a {
 
 a:hover {
   border-bottom-color: var(--color-text);
+}
+
+/* Active navigation link */
+.active,
+a.active {
+  font-weight: var(--font-weight-medium);
+  border-bottom-color: var(--color-text);
+}
+
+/* Focus styles for keyboard navigation */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus,
+[tabindex]:focus {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px var(--color-focus-ring);
+}
+
+/* Only show focus styles when using keyboard */
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+  box-shadow: none;
 }
 
 /* Header & Navigation - Absolute Minimalism */
@@ -572,6 +644,27 @@ footer p:last-child {
 .contact-info a:hover {
   color: var(--color-text);
   border-bottom: none;
+}
+
+.footer-links {
+  margin-top: var(--spacing-sm);
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--font-size-small);
+}
+
+.footer-links a {
+  color: var(--color-text-light);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-fast) ease;
+  padding: 0 var(--spacing-xs);
+}
+
+.footer-links a:hover,
+.footer-links a:focus {
+  color: var(--color-text);
+  border-bottom-color: var(--color-text);
 }
 
 /* Utilities - Simplified and Refined */

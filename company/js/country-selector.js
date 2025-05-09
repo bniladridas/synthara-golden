@@ -2,6 +2,7 @@
  * Country Selection Modal with Validation
  * Shows only on first visit, respects localStorage
  * Fixed to ensure it only shows once across all pages
+ * Enhanced with accessibility features
  */
 
 // Use DOMContentLoaded instead of window.onload for better reliability
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const modal = document.getElementById('country-modal');
   const countrySelect = document.getElementById('country-select');
   const enableCacheCheckbox = document.getElementById('enable-cache');
+  const confirmButton = document.getElementById('confirm-country');
 
   if (!modal || !countrySelect) {
     console.error('Required elements not found!');
@@ -42,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Show the modal
       modal.style.display = 'flex';
       modal.style.opacity = '1';
+      modal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
 
       // Get the modal content
@@ -50,29 +53,51 @@ document.addEventListener('DOMContentLoaded', function() {
         modalContent.style.opacity = '1';
         modalContent.style.transform = 'translateY(0) scale(1)';
       }
+
+      // Focus the first focusable element in the modal
+      countrySelect.focus();
+
+      // Trap focus within modal
+      trapFocusInModal(modal);
     }, 300);
   } else {
     console.log('Country already selected:', hasSelectedCountry, '- not showing modal');
     // Ensure modal is hidden
     if (modal) {
       modal.style.display = 'none';
+      modal.setAttribute('aria-hidden', 'true');
     }
   }
 
   // Add event listener to the confirm button
-  const confirmButton = document.getElementById('confirm-country');
   if (confirmButton) {
     confirmButton.addEventListener('click', function() {
       // Validate country selection
       if (!countrySelect.value) {
         // Show error - add red border to select
-        countrySelect.style.borderColor = '#ff0000';
+        countrySelect.style.borderColor = 'var(--color-error)';
+        countrySelect.setAttribute('aria-invalid', 'true');
 
         // Add shake animation for better feedback
         countrySelect.style.animation = 'shake 0.5s cubic-bezier(.36,.07,.19,.97) both';
         setTimeout(() => {
           countrySelect.style.animation = '';
         }, 500);
+
+        // Announce error to screen readers
+        const errorMessage = document.createElement('div');
+        errorMessage.className = 'sr-only';
+        errorMessage.setAttribute('aria-live', 'assertive');
+        errorMessage.textContent = 'Please select a country before continuing.';
+        modal.appendChild(errorMessage);
+
+        // Remove error message after it's been announced
+        setTimeout(() => {
+          modal.removeChild(errorMessage);
+        }, 3000);
+
+        // Focus the select element
+        countrySelect.focus();
 
         return; // Stop execution if no country selected
       }
@@ -87,6 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Hide the modal
       modal.style.opacity = '0';
+      modal.setAttribute('aria-hidden', 'true');
       setTimeout(function() {
         modal.style.display = 'none';
         document.body.style.overflow = '';
@@ -97,7 +123,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Show confirmation with country name
       const countryName = getCountryName(selectedCountry);
-      alert(`Country selection confirmed: ${countryName}! Cache settings ${cacheEnabled ? 'enabled' : 'disabled'}.`);
+
+      // Use a more accessible confirmation method
+      const confirmationMessage = document.createElement('div');
+      confirmationMessage.className = 'sr-only';
+      confirmationMessage.setAttribute('aria-live', 'polite');
+      confirmationMessage.textContent = `Country selection confirmed: ${countryName}! Cache settings ${cacheEnabled ? 'enabled' : 'disabled'}.`;
+      document.body.appendChild(confirmationMessage);
+
+      // Remove confirmation message after it's been announced
+      setTimeout(() => {
+        document.body.removeChild(confirmationMessage);
+      }, 3000);
     });
   }
 
@@ -106,12 +143,60 @@ document.addEventListener('DOMContentLoaded', function() {
     // Remove error state when user selects a country
     if (this.value) {
       this.style.borderColor = '';
+      this.setAttribute('aria-invalid', 'false');
+    }
+  });
+
+  // Close modal on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.style.display === 'flex') {
+      // Don't close if this is the first visit - force a selection
+      if (!hasSelectedCountry) {
+        // Focus the select element
+        countrySelect.focus();
+        return;
+      }
+
+      // Otherwise close the modal
+      modal.style.opacity = '0';
+      modal.setAttribute('aria-hidden', 'true');
+      setTimeout(function() {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+      }, 400);
     }
   });
 
   // Add shake animation style
   addShakeAnimation();
 });
+
+/**
+ * Trap focus within the modal dialog for keyboard accessibility
+ * @param {HTMLElement} modal - The modal element
+ */
+function trapFocusInModal(modal) {
+  // Get all focusable elements
+  const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+  const firstElement = focusableElements[0];
+  const lastElement = focusableElements[focusableElements.length - 1];
+
+  // Handle tab key to trap focus
+  modal.addEventListener('keydown', function(e) {
+    if (e.key === 'Tab') {
+      // Shift + Tab on first element should loop to last element
+      if (e.shiftKey && document.activeElement === firstElement) {
+        e.preventDefault();
+        lastElement.focus();
+      }
+      // Tab on last element should loop to first element
+      else if (!e.shiftKey && document.activeElement === lastElement) {
+        e.preventDefault();
+        firstElement.focus();
+      }
+    }
+  });
+}
 
 /**
  * Get country name from country code

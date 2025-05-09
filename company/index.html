@@ -19,13 +19,17 @@
 
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/country-modal.css">
+  <link rel="stylesheet" href="css/changelog-modal.css">
   <!-- Favicon -->
   <link rel="icon" href="svg/favicon.svg" type="image/svg+xml">
   <link rel="alternate icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
+  <!-- Skip to main content link for keyboard users -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- Header -->
-  <header>
+  <header role="banner">
     <div class="container">
       <div class="header-inner">
         <div class="logo">
@@ -34,24 +38,30 @@
             Synthara AI
           </a>
         </div>
-        <nav>
-          <ul>
+        <nav role="navigation" aria-label="Main Navigation">
+          <button class="menu-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Toggle menu" hidden>
+            <span class="sr-only">Menu</span>
+            <span class="menu-icon"></span>
+          </button>
+          <ul id="main-menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="pages/approach.html">Our Approach</a></li>
             <li><a href="pages/technology.html">Technology</a></li>
             <li class="nav-more">
-              <div class="more-button">
+              <button class="more-button" aria-expanded="false" aria-controls="dropdown-menu">
                 More
-                <svg class="more-button-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="more-button-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-              </div>
-              <div class="nav-dropdown">
+              </button>
+              <div class="nav-dropdown" id="dropdown-menu">
                 <ul>
                   <li><a href="pages/showcase.html">Showcase</a></li>
                   <li><a href="pages/about.html">About</a></li>
                   <li><a href="pages/tokenizer.html">Tokenizer</a></li>
                   <li><a href="pages/infrastructure.html">Infrastructure</a></li>
+                  <li><a href="pages/sota.html" aria-label="State-of-the-Art AI">SOTA</a></li>
+                  <li><a href="pages/workspace.html" aria-label="Access your workspace">Workspace</a></li>
                   <li><a href="pages/contact.html">Contact</a></li>
                 </ul>
               </div>
@@ -63,28 +73,28 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="section-hero">
+  <section class="section-hero" aria-labelledby="hero-heading">
     <div class="container container-narrow">
       <div class="hero">
-        <h1>Maximizing Value Through Minimalism</h1>
+        <h1 id="hero-heading">Maximizing Value Through Minimalism</h1>
         <p>We create intelligent software that transforms development costs into business value—where reduced complexity directly correlates with increased ROI, and every eliminated redundancy translates to measurable efficiency gains.</p>
 
-        <div class="agent-animation">
-          <div class="agent-prompt">Reducing development costs</div>
-          <div class="agent-response">Accelerating time to market</div>
-          <div class="agent-response-2">Minimizing maintenance overhead</div>
-          <div class="agent-response-3">Maximizing business value</div>
+        <div class="agent-animation" aria-live="polite" aria-label="Animated text showing our key benefits">
+          <div class="agent-prompt" aria-hidden="true">Reducing development costs</div>
+          <div class="agent-response" aria-hidden="true">Accelerating time to market</div>
+          <div class="agent-response-2" aria-hidden="true">Minimizing maintenance overhead</div>
+          <div class="agent-response-3" aria-hidden="true">Maximizing business value</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Main Content -->
-  <main class="transition-fade">
-    <section class="section">
+  <main id="main-content" class="transition-fade" role="main">
+    <section class="section" aria-labelledby="value-proposition-heading">
       <div class="container container-narrow">
         <div class="content-section">
-          <h2>Our Business Value Proposition</h2>
+          <h2 id="value-proposition-heading">Our Business Value Proposition</h2>
           <p>At Synthara AI, we operate at the intersection of artificial intelligence and business efficiency. We've transformed the economics of software development by creating agents that don't merely generate code—they optimize the entire value chain from requirements to deployment.</p>
 
           <p>Our technology delivers measurable financial benefits: reduced development cycles by 60%, decreased maintenance costs by 40%, and accelerated time-to-market by 70%. Every line of code is evaluated against its contribution to business value, creating solutions where efficiency and elegance directly translate to bottom-line results.</p>
@@ -92,106 +102,112 @@
           <p>We maintain complete transparency about our ROI metrics and cost-saving capabilities. Our documentation quantifies both immediate savings and long-term value with precise calculations—not as abstract promises, but as verifiable financial outcomes. This evidence-based approach forms the foundation of our value proposition in an era where technology investments must demonstrate clear returns.</p>
         </div>
 
-        <div class="content-section">
-          <h2>Our Revenue-Generating Capabilities</h2>
-          <div class="grid">
-            <div class="card">
+        <div class="content-section" aria-labelledby="revenue-capabilities-heading">
+          <h2 id="revenue-capabilities-heading">Our Revenue-Generating Capabilities</h2>
+          <div class="grid" role="list">
+            <div class="card" role="listitem">
               <h3>Development Cost Reduction</h3>
               <p>Our AI agents reduce software development costs by up to 65% through automated code generation, eliminating expensive development cycles and dramatically reducing the resources required to bring products to market.</p>
             </div>
 
-            <div class="card">
+            <div class="card" role="listitem">
               <h3>Maintenance Efficiency</h3>
               <p>Our clean, minimal code requires 40% less maintenance than traditional solutions, directly translating to reduced operational expenses and allowing technical teams to focus on innovation rather than upkeep.</p>
             </div>
 
-            <div class="card">
+            <div class="card" role="listitem">
               <h3>Time-to-Market Acceleration</h3>
               <p>By reducing development time by up to 70%, our technology enables businesses to capture market opportunities faster, generating revenue sooner and establishing competitive advantages that translate to increased market share.</p>
             </div>
           </div>
         </div>
 
-        <div class="content-section">
-          <h2>Our ROI-Driven Process</h2>
+        <div class="content-section" aria-labelledby="roi-process-heading">
+          <h2 id="roi-process-heading">Our ROI-Driven Process</h2>
           <p>We've developed a value-focused methodology that systematically transforms business requirements into cost-effective solutions while maintaining complete financial transparency at every stage.</p>
 
-          <div class="grid">
-            <div class="card">
+          <div class="grid" role="list">
+            <div class="card" role="listitem">
               <h3>1. Cost Analysis</h3>
               <p>Our system performs comprehensive analysis of project requirements, identifying potential cost centers, resource requirements, and development timelines to establish clear financial benchmarks.</p>
             </div>
 
-            <div class="card">
+            <div class="card" role="listitem">
               <h3>2. Value Optimization</h3>
               <p>We employ AI-driven techniques to construct solution architectures that maximize business value while minimizing development costs and future maintenance requirements.</p>
             </div>
 
-            <div class="card">
+            <div class="card" role="listitem">
               <h3>3. Efficient Implementation</h3>
               <p>Our technology transforms abstract requirements into concrete implementations using minimal code that reduces development time by 70% while maintaining complete functionality.</p>
             </div>
 
-            <div class="card">
+            <div class="card" role="listitem">
               <h3>4. Continuous ROI Enhancement</h3>
               <p>We apply business intelligence principles to systematically eliminate cost centers and optimize value delivery, ensuring that every aspect of the solution contributes directly to financial returns.</p>
             </div>
           </div>
         </div>
 
-        <div class="content-section">
-          <h2>Cost-Saving Innovations</h2>
+        <div class="content-section" aria-labelledby="cost-saving-heading">
+          <h2 id="cost-saving-heading">Cost-Saving Innovations</h2>
           <p>In our pursuit of maximum business value, we've developed several breakthrough technologies that directly translate to measurable cost savings and revenue opportunities:</p>
 
           <div class="card">
             <h3>Automated Error Recovery</h3>
             <p>We've eliminated costly development delays caused by API failures through our intelligent error handling system. This technology reduces debugging time by 85% and prevents expensive project delays that typically cost businesses $5,000-$10,000 per day.</p>
-            <p><a href="pages/technology.html#json-parsing">View cost-saving metrics →</a></p>
+            <p><a href="pages/technology.html#json-parsing" aria-label="View cost-saving metrics for automated error recovery">View cost-saving metrics →</a></p>
           </div>
 
           <div class="card">
             <h3>Zero-Configuration Deployment</h3>
             <p>We've reduced DevOps overhead by 60% through our self-configuring environment system. This eliminates an average of 20 hours of setup and configuration time per project, translating to immediate cost savings of $2,000-$4,000 per implementation.</p>
-            <p><a href="pages/approach.html#environment-management">See implementation savings →</a></p>
+            <p><a href="pages/approach.html#environment-management" aria-label="See implementation savings for zero-configuration deployment">See implementation savings →</a></p>
           </div>
 
           <div class="card">
             <h3>Maintenance Cost Reduction</h3>
             <p>Our clean, minimal interfaces require 40% less maintenance than traditional solutions. For a typical enterprise application, this translates to annual savings of $50,000-$100,000 in ongoing development and support costs.</p>
-            <p><a href="pages/showcase.html">Calculate your ROI →</a></p>
+            <p><a href="pages/showcase.html" aria-label="Calculate your ROI with our maintenance cost reduction">Calculate your ROI →</a></p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" style="background-color: var(--color-light);">
+    <section class="section" style="background-color: var(--color-light);" aria-labelledby="calculate-savings-heading">
       <div class="container container-narrow text-center">
-        <h2>Calculate Your Potential Savings</h2>
+        <h2 id="calculate-savings-heading">Calculate Your Potential Savings</h2>
         <p>Explore our case studies and ROI calculator to see how our technology can reduce your development costs, accelerate time-to-market, and maximize your return on investment.</p>
-        <p><a href="pages/showcase.html">View Business Impact →</a></p>
+        <p><a href="pages/showcase.html" aria-label="View business impact and ROI calculator">View Business Impact →</a></p>
       </div>
     </section>
   </main>
 
   <!-- Footer -->
-  <footer>
+  <footer role="contentinfo">
     <div class="container">
       <p>&copy; 2025 Synthara AI. All rights reserved.</p>
       <p>Building intelligent software agents with clean, harmonious design.</p>
-      <p class="contact-info">Contact: <a href="mailto:synthara.company@gmail.com">synthara.company@gmail.com</a></p>
+      <p class="contact-info">Contact: <a href="mailto:synthara.company@gmail.com" aria-label="Email Synthara AI">synthara.company@gmail.com</a></p>
+      <div class="footer-links">
+        <a href="pages/terms.html" aria-label="Terms of Service">Terms of Service</a> |
+        <a href="pages/privacy.html" aria-label="Privacy Policy">Privacy Policy</a> |
+        <a href="pages/cookies.html" aria-label="Cookie Policy">Cookie Policy</a>
+      </div>
     </div>
   </footer>
 
-  <!-- Country Selection Modal - Refined for Perfect Typography -->
-  <div id="country-modal" class="country-modal">
+  <!-- Country Selection Modal - Refined for Perfect Typography and Accessibility -->
+  <div id="country-modal" class="country-modal" role="dialog" aria-labelledby="country-modal-title" aria-modal="true" aria-hidden="true">
     <div class="country-modal-content">
       <div class="country-modal-header">
-        <h2>Welcome to Synthara AI</h2>
+        <h2 id="country-modal-title">Welcome to Synthara AI</h2>
       </div>
       <div class="country-modal-body">
         <p>Please select your location to optimize your experience with our perfectly balanced, harmonious interface. This also enables cache settings for a 250% faster browsing experience.</p>
         <div class="country-select-container">
-          <select id="country-select" aria-label="Select your country">
+          <label for="country-select" class="sr-only">Select your country</label>
+          <select id="country-select" aria-required="true">
             <option value="" disabled selected>Where are you browsing from?</option>
             <option value="us">United States</option>
             <option value="ca">Canada</option>
@@ -217,11 +233,11 @@
   </div>
 
   <!-- Floating Pad -->
-  <div class="floating-pad">
-    <a href="https://syntharaai.vercel.app" target="_blank" rel="noopener noreferrer">
+  <div class="floating-pad" role="complementary" aria-label="Visit our main website">
+    <a href="https://syntharaai.vercel.app" target="_blank" rel="noopener noreferrer" aria-label="Visit syntharaai.vercel.app (opens in a new tab)">
       <div class="floating-pad-content">
         <span class="floating-pad-text">syntharaai.vercel.app</span>
-        <span class="floating-pad-arrow">→</span>
+        <span class="floating-pad-arrow" aria-hidden="true">→</span>
       </div>
     </a>
   </div>
@@ -229,5 +245,6 @@
   <!-- Scripts -->
   <script src="js/main.js"></script>
   <script src="js/country-selector.js"></script>
+  <script src="js/changelog-modal.js"></script>
 </body>
 </html>
